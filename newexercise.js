@@ -1,6 +1,5 @@
 const prompts = require('prompts');
 const Fraction = require('fraction.js');
-const rooms = require('./promptUI');
 prompts.override(require('yargs').argv);
 
 
@@ -180,7 +179,7 @@ class Room {
 }
 
 
-// Set Class for Character
+// Set Class for Player
 class Character {
     constructor (name,health_point,dam,hit_chance) {
         this.name = name;
@@ -292,7 +291,7 @@ class Character {
 
 
 
-//Set Class For Enemy with Inheritance
+//Set Class For Enemy in Games
 class Enemy {
     constructor (name,health_point,dam,hit_chance) {
         this.name = name,
@@ -314,10 +313,7 @@ let hallway = new Room('Hallway')
 let chamber = new Room('Chamber');
 let portal = new Room('Portal');
 
-// console.log(player.attackEnemy(dragon));
-// console.log(hallway.linkRoom(dungeon));
-// console.log(hallway.linkRoom(chamber));
-// console.log(dungeon.linkRoom(hallway));
+
 
 chamber.linkRoom(hallway);
 chamber.linkRoom(portal);
@@ -331,7 +327,7 @@ let rat = new Enemy('rat',2,1,50);
 let dragon = new Enemy('dragon',4,8,90);
 
 
-
+//Set UI and function for Entrance Room 
 
 function entranceRoom () {
 
@@ -358,11 +354,12 @@ function entranceRoom () {
 entranceRoom();
 
 
-// let inchamber = chamber.linkEnemy(dragon);
+
 
 
 const inhallway = hallway.linkMonster(rat);
 
+//Set UI and function for Hallway Room
 
 function hallwayArea () {
     
@@ -480,7 +477,7 @@ function hallwayArea () {
 
 const inchamber = chamber.linkMonster(dragon);
 
-
+//Set UI and function for Chamber room
 
 function chamberArea () {
     
